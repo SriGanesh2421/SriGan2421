@@ -130,10 +130,10 @@
     .team-btn:hover,.team-btn.active { background:var(--gold); color:var(--cream); }
 
     /* Music bar */
-    .music-bar {
+   .music-bar {
 position:fixed;
-bottom:20px;
-right:20px;
+bottom:18px;
+right:18px;
 background:rgba(92,61,30,.92);
 backdrop-filter:blur(10px);
 border:1px solid var(--gold);
@@ -588,7 +588,7 @@ transform:scale(0.88);
   }
 
   // ── Music player
-  const audio=document.getElementById('bgMusic');
+ const audio=document.getElementById('bgMusic');
 const mbtn=document.getElementById('musicBtn');
 const waves=document.getElementById('musicWaves');
 
@@ -630,6 +630,45 @@ function toggleMusic(){
   playing=!playing;
 }
 
+function createFloatingEmoji(emoji){
+  const el=document.createElement('div');
+
+  el.textContent=emoji;
+
+  el.style.position='fixed';
+  el.style.left=Math.random()*100+'vw';
+  el.style.top='100vh';
+  el.style.fontSize=(Math.random()*18+22)+'px';
+  el.style.zIndex='9999';
+  el.style.pointerEvents='none';
+  el.style.transition='all 4s linear';
+
+  document.body.appendChild(el);
+
+  setTimeout(()=>{
+    el.style.transform=`translateY(-120vh) rotate(${Math.random()*360}deg)`;
+    el.style.opacity='0';
+  },50);
+
+  setTimeout(()=>el.remove(),4000);
+}
+
+function showBrideLove(){
+  for(let i=0;i<25;i++){
+    setTimeout(()=>{
+      createFloatingEmoji(['❤️','💖','💕','💘'][Math.floor(Math.random()*4)]);
+    },i*120);
+  }
+}
+
+function showGroomMagic(){
+  for(let i=0;i<25;i++){
+    setTimeout(()=>{
+      createFloatingEmoji(['⭐','🌟','🌸','✨'][Math.floor(Math.random()*4)]);
+    },i*120);
+  }
+}
+  
   // ── Gallery lightbox
   function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
   function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
