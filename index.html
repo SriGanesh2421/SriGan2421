@@ -232,42 +232,66 @@ transform:scale(0.88);
 
   <p class="invite-label">Together with their families</p>
 
-  <!-- ✏️ EDIT 8: Replace 💍 with your couple photo:
-       <img src="couple.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
-  <div class="couple-photo-wrap">💍</div>
+  <!-- Couple Main Photo -->
+  <div class="couple-photo-wrap">
+    <img src="Photo1.jpeg"
+         style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+  </div>
 
   <p class="hashtag">#SriGan</p>
   <p class="subtitle">Joyfully invite you to celebrate the wedding of</p>
 
-  <!-- ✏️ EDIT 9: Names -->
   <h1 class="couple-names">
     Sri Lakshmi Pinisetti <br/><span>&</span><br/>Sai Ganesh Boda
   </h1>
 
   <div class="divider">
-    <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
   </div>
 
-  <!-- ✏️ EDIT 10: Date & Location -->
   <p class="save-date">Save the Date</p>
   <p class="wedding-date">2nd & 3rd July, 2026</p>
   <p class="wedding-location">📍 Udumudi, Amalapuram District, Andhra Pradesh</p>
 
   <div class="countdown-wrap">
     <p class="countdown-label">Counting down to our forever</p>
+
     <div class="countdown">
-      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-unit">Days</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-unit">Hours</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-unit">Mins</span></div>
-      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-unit">Secs</span></div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-days">00</span>
+        <span class="cd-unit">Days</span>
+      </div>
+
+      <div class="cd-box">
+        <span class="cd-num" id="cd-hours">00</span>
+        <span class="cd-unit">Hours</span>
+      </div>
+
+      <div class="cd-box">
+        <span class="cd-num" id="cd-mins">00</span>
+        <span class="cd-unit">Mins</span>
+      </div>
+
+      <div class="cd-box">
+        <span class="cd-num" id="cd-secs">00</span>
+        <span class="cd-unit">Secs</span>
+      </div>
     </div>
   </div>
 
   <div class="team-section">
     <p class="team-label">Mee Side Enti? (Which side are you?)</p>
+
     <div class="team-btns">
-      <button class="team-btn" onclick="teamSelect(this,'bride')">Photo2.jpeg Team Sri Lakshmi</button>
-      <button class="team-btn" onclick="teamSelect(this,'groom')">Photo9.jpeg Team Sai Ganesh</button>
+      <button class="team-btn" onclick="teamSelect(this,'bride')">
+        💛 Team Sri Lakshmi
+      </button>
+
+      <button class="team-btn" onclick="teamSelect(this,'groom')">
+        🤎 Team Sai Ganesh
+      </button>
     </div>
   </div>
 
@@ -279,29 +303,51 @@ transform:scale(0.88);
 
 <!-- ══════════ PROFILES ══════════ -->
 <section class="section-bg-alt">
+
   <p class="section-title reveal">The Couple</p>
   <h2 class="section-heading reveal">Two Hearts, One Story</h2>
   <p class="ornament reveal">✦ ✦ ✦</p>
 
   <div class="profiles">
-    <!-- ✏️ EDIT 11: Bride — change bio text & replace emoji with photo -->
+
+    <!-- Bride -->
     <div class="profile-card reveal">
-      <div class="profile-avatar">Photo2.jpeg</div>
+
+      <div class="profile-avatar">
+        <img src="Photo2.jpeg"
+             style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+
       <div class="profile-info">
         <p class="profile-role">The Bride</p>
         <p class="profile-name">Sri Lakshmi Pinisetti</p>
-        <p class="profile-bio">The calm to his storm, grace in every step, and warmth that fills every room. She began this beautiful journey with a smile — and makes every moment shine brighter.</p>
+
+        <p class="profile-bio">
+          The calm to his storm, grace in every step, and warmth that fills every room.
+          She began this beautiful journey with a smile — and makes every moment shine brighter.
+        </p>
       </div>
     </div>
-    <!-- ✏️ EDIT 12: Groom — change bio text & replace emoji with photo -->
+
+    <!-- Groom -->
     <div class="profile-card reveal">
-      <div class="profile-avatar">Photo12.jpeg</div>
+
+      <div class="profile-avatar">
+        <img src="Photo12.jpeg"
+             style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+
       <div class="profile-info">
         <p class="profile-role">The Groom</p>
         <p class="profile-name">Sai Ganesh Boda</p>
-        <p class="profile-bio">Her partner in laughter, adventure, and every chapter of life. He looked at her once and chose forever — and has been smiling about it ever since.</p>
+
+        <p class="profile-bio">
+          Her partner in laughter, adventure, and every chapter of life.
+          He looked at her once and chose forever — and has been smiling about it ever since.
+        </p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -415,22 +461,42 @@ transform:scale(0.88);
   <h2 class="section-heading reveal">Moments We Cherish</h2>
   <p class="ornament reveal">✦ ✦ ✦</p>
 
-  <!-- ✏️ EDIT 14: PHOTOS
-       Replace each emoji div with a real photo like this:
-       <div class="gallery-item reveal" onclick="openLightbox('photo1.jpg')">
-         <img src="photo1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
-       </div>
-       Make sure photo files are uploaded next to index.html on GitHub! -->
   <div class="gallery-grid">
-    <div class="gallery-item reveal">Photo3.jpeg</div>
-    <div class="gallery-item reveal">Photo4.jpeg</div>
-    <div class="gallery-item reveal">Photo5.jpeg</div>
-    <div class="gallery-item reveal">Photo6.jpeg</div>
-    <div class="gallery-item reveal">Photo7.jpeg</div>
-    <div class="gallery-item reveal">Photo12.jpeg</div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo3.jpeg')">
+      <img src="Photo3.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo4.jpeg')">
+      <img src="Photo4.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo5.jpeg')">
+      <img src="Photo5.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo6.jpeg')">
+      <img src="Photo6.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo7.jpeg')">
+      <img src="Photo7.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
+    <div class="gallery-item reveal" onclick="openLightbox('Photo12.jpeg')">
+      <img src="Photo12.jpeg"
+           style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+
   </div>
+
   <p style="text-align:center;margin-top:18px;font-size:13px;font-style:italic;color:var(--text-soft);" class="reveal">
-    Add your pre-wedding photos here ✨
+    Captured moments from our beautiful journey ✨
   </p>
 </section>
 
