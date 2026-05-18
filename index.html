@@ -213,23 +213,26 @@ transform:scale(0.88);
     .lightbox img { max-width:90vw; max-height:85vh; border-radius:8px; border:2px solid var(--gold); }
     .lightbox-close { position:absolute; top:20px; right:24px; font-size:32px; color:var(--gold); cursor:pointer; }
 
-/* ===== Floating Romantic Effects ===== */
+/* ===== FULL SCREEN MAGIC EFFECTS ===== */
 
 .magic-container{
   position:fixed;
-  inset:0;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   overflow:hidden;
   pointer-events:none;
-  z-index:1;
+  z-index:9999;
 }
 
 .magic-item{
-  position:absolute;
-  bottom:-40px;
+  position:fixed;
+  bottom:-50px;
   font-size:22px;
   opacity:.85;
   animation:floatMagic linear infinite;
-  filter:drop-shadow(0 0 8px rgba(255,255,255,.4));
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.55));
 }
 
 @keyframes floatMagic{
@@ -741,6 +744,8 @@ function createMagic(){
 
   item.style.opacity=
     (.4 + Math.random()*.6);
+
+  item.style.bottom='-50px';
 
   container.appendChild(item);
 
