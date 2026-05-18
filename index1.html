@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>శ్రీ లక్ష్మి & సాయి గణేష్ వివాహ ఆహ్వానం — #SriGan</title>
+  <meta name="description" content="శ్రీ లక్ష్మి పినిశెట్టి & సాయి గణేష్ బొడ వివాహానికి మీకు హార్దిక స్వాగతం — #SriGan — జూలై 2 & 3, 2026, ఉడుముడి, ఆంధ్రప్రదేశ్"/>
+
+  <!-- Telugu font support -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Noto+Serif+Telugu:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C97A;
+      --gold-pale:   #F5E9C8;
+      --cream:       #FDF8EE;
+      --cream-dark:  #F2E9D0;
+      --brown:       #7A0019;
+      --brown-light: #8B6230;
+      --text:        #2B0A0F;
+      --text-soft:   #5A3B1A;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--cream); color:var(--text); font-family:'Noto Serif Telugu','Cormorant Garamond',serif; overflow-x:hidden; }
+
+    /* Telugu text global */
+    .te { font-family:'Noto Serif Telugu',serif; }
+
+    #particles { position:fixed; inset:0; pointer-events:none; z-index:0; }
+    .particle { position:absolute; border-radius:50%; opacity:0; animation:floatUp linear infinite; }
+    @keyframes floatUp {
+      0%   { transform:translateY(100vh) scale(0); opacity:0; }
+      10%  { opacity:0.5; } 90% { opacity:0.2; }
+      100% { transform:translateY(-10vh) scale(1); opacity:0; }
+    }
+
+    /* magic floating icons */
+    .magic-container { position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; pointer-events:none; z-index:0; }
+    .magic-item { position:fixed; bottom:-50px; font-size:22px; opacity:.85; animation:floatMagic linear infinite; filter:drop-shadow(0 0 10px rgba(255,255,255,.55)); }
+    @keyframes floatMagic {
+      0%   { transform:translateY(0) rotate(0deg) scale(.7); opacity:0; }
+      10%  { opacity:.9; }
+      100% { transform:translateY(-120vh) rotate(360deg) scale(1.2); opacity:0; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position:relative; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:70px 28px 60px;
+      background:
+        radial-gradient(ellipse at 20% 10%,rgba(201,168,76,.18) 0%,transparent 55%),
+        radial-gradient(ellipse at 80% 90%,rgba(201,168,76,.14) 0%,transparent 55%),
+        var(--cream);
+      z-index:1;
+    }
+    .hero::before,.hero::after { content:''; position:absolute; border:1px solid rgba(201,168,76,.28); border-radius:2px; }
+    .hero::before { inset:16px; } .hero::after { inset:23px; }
+    .corner { position:absolute; width:52px; height:52px; border-color:var(--gold); border-style:solid; opacity:.65; }
+    .corner.tl{top:10px;left:10px;border-width:2px 0 0 2px}
+    .corner.tr{top:10px;right:10px;border-width:2px 2px 0 0}
+    .corner.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}
+    .corner.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
+
+    .invite-label {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:13px; letter-spacing:1px; color:var(--gold);
+      margin-bottom:6px; opacity:0; animation:fadeUp 1s ease .2s forwards;
+      line-height:1.7;
+    }
+
+    .mantra-top {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:15px; color:#7A0019; font-weight:600;
+      margin-bottom:18px; opacity:0; animation:fadeUp 1s ease .35s forwards;
+      letter-spacing:.5px; line-height:1.8;
+    }
+
+    .couple-photo-wrap {
+      width:155px; height:155px; border-radius:50%;
+      border:4px solid var(--gold);
+      box-shadow:0 0 0 8px rgba(201,168,76,.15),0 10px 32px rgba(92,61,30,.22);
+      margin-bottom:24px;
+      background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark));
+      display:flex; align-items:center; justify-content:center; font-size:62px;
+      overflow:hidden; opacity:0; animation:fadeUp 1s ease .5s forwards;
+    }
+
+    .hashtag {
+      font-family:'Cinzel',serif; font-size:22px; font-weight:700;
+      letter-spacing:5px; color:#B8860B;
+      text-shadow:0 2px 12px rgba(184,134,11,.35);
+      margin-bottom:10px; opacity:0; animation:fadeUp 1s ease .65s forwards;
+    }
+
+    .subtitle {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:13px; color:#8B6230; margin-bottom:14px;
+      line-height:1.9; max-width:320px;
+      opacity:0; animation:fadeUp 1s ease .75s forwards;
+    }
+
+    .couple-names {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:clamp(28px,8vw,52px); font-weight:700;
+      color:#7A0019; line-height:1.15; margin-bottom:18px;
+      text-shadow:0 4px 18px rgba(122,0,25,.12);
+      opacity:0; animation:fadeUp 1s ease .9s forwards;
+    }
+    .couple-names span { color:var(--gold); font-size:0.7em; }
+
+    .divider { display:flex; align-items:center; gap:12px; margin:14px auto 18px; width:220px; opacity:0; animation:fadeUp 1s ease 1.05s forwards; }
+    .divider-line { flex:1; height:1px; background:var(--gold); opacity:.45; }
+    .divider-diamond { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); }
+
+    .save-date {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:13px; color:var(--text-soft); margin-bottom:5px;
+      opacity:0; animation:fadeUp 1s ease 1.1s forwards;
+    }
+    .wedding-date {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:20px; font-weight:700; color:var(--brown); letter-spacing:.5px; margin-bottom:5px;
+      opacity:0; animation:fadeUp 1s ease 1.2s forwards;
+    }
+    .wedding-location {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:14px; color:var(--text-soft); margin-bottom:26px;
+      opacity:0; animation:fadeUp 1s ease 1.25s forwards; line-height:1.6;
+    }
+
+    .countdown-wrap { margin-bottom:24px; opacity:0; animation:fadeUp 1s ease 1.35s forwards; }
+    .countdown-label {
+      font-family:'Noto Serif Telugu',serif;
+      font-size:12px; color:var(--gold); margin-bottom:14px; letter-spacing:.5px;
+    }
+    .countdown { display:flex; gap:10px; justify-content:center; }
+    .cd-box { background:linear-gradient(135deg,var(--brown) 0%,#2C1A08 100%); border:1px solid var(--gold); border-radius:6px; padding:10px 10px 8px; min-width:62px; text-align:center; }
+    .cd-num { font-family:'Cinzel',serif; font-size:24px; font-weight:600; color:var(--gold-light); line-height:1; display:block; }
+    .cd-unit { font-family:'Noto Serif Telugu',serif; font-size:9px; color:rgba(232,201,122,.6); margin-top:4px; display:block; }
+
+    .team-section { margin-top:6px; opacity:0; animation:fadeUp 1s ease 1.55s forwards; }
+    .team-label { font-family:'Noto Serif Telugu',serif; font-size:13px; color:var(--text-soft); margin-bottom:12px; }
+    .team-btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .team-btn { padding:10px 18px; border-radius:30px; border:1.5px solid var(--gold); background:transparent; font-family:'Noto Serif Telugu',serif; font-size:13px; color:var(--brown); cursor:pointer; transition:all .3s; }
+    .team-btn:hover,.team-btn.active { background:var(--gold); color:var(--cream); }
+
+    /* Music bar */
+    .music-bar {
+      position:fixed; bottom:18px; right:18px;
+      background:rgba(92,61,30,.93); backdrop-filter:blur(10px);
+      border:1px solid var(--gold); border-radius:50px;
+      padding:8px 14px; display:flex; align-items:center; gap:8px;
+      z-index:999; box-shadow:0 4px 18px rgba(0,0,0,.3);
+    }
+    .music-btn { background:var(--gold); border:none; border-radius:50%; width:34px; height:34px; cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center; transition:transform .2s; }
+    .music-btn:hover { transform:scale(1.1); }
+    .music-label { font-family:'Noto Serif Telugu',serif; font-size:11px; color:var(--gold-light); white-space:nowrap; }
+    .music-waves { display:flex; gap:3px; align-items:center; }
+    .wave-bar { width:3px; background:var(--gold); border-radius:2px; animation:wave .8s ease-in-out infinite alternate; }
+    .wave-bar:nth-child(2){animation-delay:.15s} .wave-bar:nth-child(3){animation-delay:.3s} .wave-bar:nth-child(4){animation-delay:.45s}
+    @keyframes wave { from{height:4px} to{height:16px} }
+    .music-waves.paused .wave-bar { animation-play-state:paused; height:6px; }
+
+    .scroll-hint { margin-top:34px; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:fadeUp 1s ease 2s forwards; }
+    .scroll-hint span { font-family:'Noto Serif Telugu',serif; font-size:11px; color:var(--gold); }
+    .scroll-arrow { width:22px; height:22px; border-right:1.5px solid var(--gold); border-bottom:1.5px solid var(--gold); transform:rotate(45deg); animation:bounce 1.5s ease infinite; }
+    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(-3px)} 50%{transform:rotate(45deg) translateY(3px)} }
+
+    section { position:relative; z-index:1; padding:60px 20px; }
+    .section-bg-alt { background:linear-gradient(180deg,var(--cream-dark) 0%,var(--cream) 100%); }
+    .section-title { font-family:'Noto Serif Telugu',serif; font-size:12px; color:var(--gold); text-align:center; margin-bottom:8px; letter-spacing:.5px; }
+    .section-heading { font-family:'Noto Serif Telugu',serif; font-size:clamp(22px,6vw,36px); font-weight:700; color:var(--brown); text-align:center; margin-bottom:10px; line-height:1.4; }
+    .section-subheading { font-family:'Noto Serif Telugu',serif; font-size:13px; color:var(--text-soft); text-align:center; margin-bottom:28px; font-style:italic; line-height:1.8; }
+    .ornament { text-align:center; color:var(--gold); font-size:16px; letter-spacing:8px; margin:0 auto 28px; opacity:.6; }
+
+    /* aashirvadam box */
+    .aashirvadam {
+      background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(245,233,200,.3));
+      border:1px solid rgba(201,168,76,.35); border-radius:12px;
+      padding:20px 22px; margin:0 auto 32px; max-width:480px;
+      text-align:center;
+    }
+    .aashirvadam-title { font-family:'Noto Serif Telugu',serif; font-size:11px; color:var(--gold); margin-bottom:10px; letter-spacing:.5px; }
+    .aashirvadam-text { font-family:'Noto Serif Telugu',serif; font-size:15px; color:#7A0019; font-weight:600; line-height:2; }
+    .aashirvadam-small { font-family:'Noto Serif Telugu',serif; font-size:12px; color:var(--text-soft); margin-top:8px; font-style:italic; line-height:1.8; }
+
+    /* profiles */
+    .profiles { display:flex; flex-direction:column; gap:22px; max-width:480px; margin:0 auto; }
+    .profile-card { background:var(--cream); border:1px solid rgba(201,168,76,.28); border-radius:12px; padding:24px 20px; display:flex; gap:18px; align-items:flex-start; box-shadow:0 4px 18px rgba(92,61,30,.08); transition:transform .3s,box-shadow .3s; }
+    .profile-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(92,61,30,.14); }
+    .profile-avatar { width:68px; height:68px; border-radius:50%; border:2.5px solid var(--gold); background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark)); display:flex; align-items:center; justify-content:center; font-size:30px; flex-shrink:0; overflow:hidden; cursor:pointer; transition:transform .3s,box-shadow .3s; }
+    .profile-avatar:hover { transform:scale(1.08); box-shadow:0 0 25px rgba(201,168,76,.5); }
+    .profile-role { font-family:'Noto Serif Telugu',serif; font-size:10px; color:var(--gold); margin-bottom:4px; }
+    .profile-name { font-family:'Noto Serif Telugu',serif; font-size:18px; font-weight:700; color:var(--brown); margin-bottom:7px; }
+    .profile-bio { font-family:'Noto Serif Telugu',serif; font-size:14px; line-height:1.9; color:#4A0D14; }
+
+    /* events */
+    .events-list { display:flex; flex-direction:column; gap:20px; max-width:480px; margin:0 auto; }
+    .event-card { background:var(--cream); border:1px solid rgba(201,168,76,.28); border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(92,61,30,.08); transition:transform .3s,box-shadow .3s; }
+    .event-card:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(92,61,30,.14); }
+    .event-header { background:linear-gradient(135deg,var(--brown) 0%,#2C1A08 100%); padding:15px 18px; display:flex; align-items:center; gap:12px; }
+    .event-icon { font-size:24px; flex-shrink:0; }
+    .event-name { font-family:'Noto Serif Telugu',serif; font-size:15px; color:var(--gold-light); font-weight:700; }
+    .event-datetime { font-family:'Noto Serif Telugu',serif; font-size:11px; color:rgba(232,201,122,.7); margin-top:4px; }
+    .event-body { padding:16px 18px; }
+    .event-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .event-row-icon { font-size:15px; flex-shrink:0; margin-top:2px; }
+    .event-row-text { font-family:'Noto Serif Telugu',serif; font-size:14px; color:var(--text); line-height:1.6; }
+    .event-row-text strong { display:block; font-size:10px; color:var(--text-soft); font-weight:400; margin-bottom:2px; letter-spacing:.3px; }
+    .map-link { display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:8px 16px; border:1.5px solid var(--gold); border-radius:25px; color:var(--brown); font-family:'Noto Serif Telugu',serif; font-size:12px; text-decoration:none; transition:all .3s; }
+    .map-link:hover { background:var(--gold); color:var(--cream); }
+    .dress-code { display:inline-block; margin-top:10px; padding:4px 12px; background:var(--gold-pale); border-radius:20px; font-family:'Noto Serif Telugu',serif; font-size:12px; color:var(--brown-light); }
+    .event-tagline { margin-top:12px; padding-top:12px; border-top:1px solid rgba(201,168,76,.2); font-family:'Noto Serif Telugu',serif; font-size:14px; color:var(--text-soft); line-height:1.9; }
+
+    /* sametalu box inside events */
+    .sameta { background:rgba(201,168,76,.08); border-left:3px solid var(--gold); border-radius:0 8px 8px 0; padding:10px 14px; margin-top:12px; font-family:'Noto Serif Telugu',serif; font-size:13px; color:#5A0014; font-style:italic; line-height:1.8; }
+
+    /* gallery */
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; max-width:480px; margin:0 auto; }
+    .gallery-item { aspect-ratio:1; background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark)); border-radius:8px; border:1px solid rgba(201,168,76,.28); display:flex; align-items:center; justify-content:center; font-size:28px; overflow:hidden; transition:transform .3s; cursor:pointer; }
+    .gallery-item:hover { transform:scale(1.04); }
+
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:9999; align-items:center; justify-content:center; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:90vw; max-height:85vh; border-radius:8px; border:2px solid var(--gold); }
+    .lightbox-close { position:absolute; top:20px; right:24px; font-size:32px; color:var(--gold); cursor:pointer; }
+
+    /* footer */
+    footer { background:linear-gradient(135deg,var(--brown) 0%,#1A0F05 100%); color:var(--gold-pale); text-align:center; padding:50px 24px 90px; position:relative; z-index:1; }
+    .footer-names { font-family:'Noto Serif Telugu',serif; font-size:28px; font-weight:700; color:var(--gold-light); margin-bottom:6px; }
+    .footer-hashtag { font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; color:var(--gold); margin-bottom:10px; }
+    .footer-mantra { font-family:'Noto Serif Telugu',serif; font-size:15px; color:var(--gold-light); margin-bottom:8px; font-weight:600; line-height:1.8; }
+    .footer-date { font-family:'Noto Serif Telugu',serif; font-size:13px; color:rgba(232,201,122,.6); margin-bottom:20px; }
+    .footer-msg { font-family:'Noto Serif Telugu',serif; font-size:15px; color:rgba(245,233,200,.75); line-height:2; max-width:340px; margin:0 auto 24px; }
+    .footer-sametalu { font-family:'Noto Serif Telugu',serif; font-size:14px; color:rgba(232,201,122,.7); font-style:italic; line-height:2; margin-bottom:20px; max-width:340px; margin-left:auto; margin-right:auto; }
+    .footer-credit { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; color:rgba(201,168,76,.4); text-transform:uppercase; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="magic-container" id="magicContainer"></div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg"/>
+</audio>
+
+<div id="particles"></div>
+
+<!-- Music Player -->
+<div class="music-bar">
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶️</button>
+  <div class="music-waves paused" id="musicWaves">
+    <div class="wave-bar"></div><div class="wave-bar"></div>
+    <div class="wave-bar"></div><div class="wave-bar"></div>
+  </div>
+  <span class="music-label">music.mp3</span>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightboxImg" src="" alt=""/>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <!-- శుభ మంత్రం -->
+  <p class="mantra-top">🪔 శ్రీ గణేశాయ నమః 🪔</p>
+
+  <p class="invite-label">
+    బొడ మరియు పినిశెట్టి కుటుంబాలు<br/>
+    మీకు హార్దికంగా స్వాగతం పలుకుతున్నాయి
+  </p>
+
+  <!-- Couple Photo -->
+  <div class="couple-photo-wrap">
+    <img src="Photo1.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+  </div>
+
+  <p class="hashtag">#SriGan</p>
+
+  <p class="subtitle">
+    వారి ప్రేమ వివాహ మహోత్సవానికి<br/>
+    మీరు ఆహ్వానితులు 🙏
+  </p>
+
+  <h1 class="couple-names">
+    శ్రీ లక్ష్మి పినిశెట్టి<br/>
+    <span>❤️</span><br/>
+    సాయి గణేష్ బొడ
+  </h1>
+
+  <div class="divider">
+    <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+  </div>
+
+  <p class="save-date">📅 తేదీని గుర్తుంచుకోండి</p>
+  <p class="wedding-date">జూలై 2 & 3, 2026</p>
+  <p class="wedding-location">📍 ఉడుముడి, అమలాపురం జిల్లా, ఆంధ్రప్రదేశ్</p>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">✨ మన శుభముహూర్తానికి లెక్కింపు ✨</p>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-unit">రోజులు</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-unit">గంటలు</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-unit">నిమిషాలు</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-unit">సెకండ్లు</span></div>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <p class="team-label">మీరు ఏ వైపు? 😄</p>
+    <div class="team-btns">
+      <button class="team-btn" onclick="teamSelect(this,'bride')">💛 శ్రీ లక్ష్మి</button>
+      <button class="team-btn" onclick="teamSelect(this,'groom')">🤎 సాయి గణేష్</button>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>⬇ కిందికి స్క్రోల్ చేయండి</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- ══════════ ASHIRVACHANAM ══════════ -->
+<section style="padding:40px 20px 10px;">
+  <div class="aashirvadam reveal">
+    <p class="aashirvadam-title">🪔 -------💛------- 🪔</p>
+    <p class="aashirvadam-text">
+      "శతమానం భవతి — శతాయుః పురుషః"<br/>
+      "సుమంగళీరియం వధూః — ఇమాం సమేత పశ్యత"<br/>
+      "ధర్మేచ అర్థేచ కామేచ నాతి చరితవ్యమ్"
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ PROFILES ══════════ -->
+<section class="section-bg-alt">
+  <p class="section-title reveal">🌸 పెళ్ళి జంట 🌸</p>
+  <h2 class="section-heading reveal">రెండు మనసులు — ఒకే నిర్ణయం</h2>
+  <p class="section-subheading reveal">
+    "ఇద్దరి మనసు ఒకటైతే — ఏడేళ్ళు కాదు, ఏడు జన్మలూ కలిసే ఉంటారు" 💕
+  </p>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <div class="profiles">
+
+    <!-- Bride -->
+    <div class="profile-card reveal">
+      <div class="profile-avatar" onclick="showBrideLove()">
+        <img src="Photo2.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+      <div class="profile-info">
+        <p class="profile-role">👰 వధువు</p>
+        <p class="profile-name">శ్రీ లక్ష్మి పినిశెట్టి</p>
+        <p class="profile-bio">
+          లక్ష్మీదేవి అంశతో పుట్టిన అమ్మాయి — ఆమె చిరునవ్వు ఇంటిని వెలిగిస్తుంది, ఆమె మాటలు మనసును తాకుతాయి. ప్రతి అడుగులో అందం, ప్రతి చూపులో ప్రేమ ❤️
+        </p>
+      </div>
+    </div>
+
+    <!-- Groom -->
+    <div class="profile-card reveal">
+      <div class="profile-avatar" onclick="showGroomMagic()">
+        <img src="Photo9.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+      </div>
+      <div class="profile-info">
+        <p class="profile-role">🤵 వరుడు</p>
+        <p class="profile-name">సాయి గణేష్ బొడ</p>
+        <p class="profile-bio">
+          గణేశుని అనుగ్రహంతో తయారైన అబ్బాయి — ఆమె నవ్వు చూసి మనసు పారేసుకున్నాడు, ఆమె చేయి పట్టుకుని జీవితాంతం నడవడానికి నిర్ణయించుకున్నాడు ✨
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+<!-- ══════════ EVENTS ══════════ -->
+<section>
+  <p class="section-title reveal">🎊 వేడుక కార్యక్రమాలు 🎊</p>
+  <h2 class="section-heading reveal">ప్రతి వేడుకకీ మీరు రావాలి!</h2>
+  <p class="section-subheading reveal">
+    "చుట్టాలు లేని పెళ్ళి — చప్పన్న వంటలున్నా రుచించదు" 😄
+  </p>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <div class="events-list">
+
+    <!-- Mehendi -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🌿🎨</div>
+        <div class="event-title-wrap">
+          <div class="event-name">మెహందీ సాయంత్రం</div>
+          <div class="event-datetime">జూలై 1, 2026 · సాయంత్రం</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>వేదిక</strong>పినిశెట్టి నివాసం, ఉడుముడి, అమలాపురం జిల్లా, ఆం.ప్ర.
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.app.goo.gl/ytLY1fHRbqRuZPUF8" target="_blank">📍 గూగుల్ మ్యాప్‌లో చూడండి</a>
+        <div class="dress-code">దుస్తులు: పువ్వుల రంగులు 🌺</div>
+        <p class="event-tagline">
+          "మెహందీ చేతుల్లో ఆమె పేరు రాసుకుంటే — అది ప్రేమ రాసుకున్నట్టే!" 🌿<br/>
+          ప్రతి గీత వెనక ఒక కల, ప్రతి రంగు వెనక ఒక ప్రేమ కథ ❤️
+        </p>
+        <div class="sameta">
+          🌸 సామెత: "పెళ్ళి ముందు పసుపు — పెళ్ళి తర్వాత పసందు!"
+        </div>
+      </div>
+    </div>
+
+    <!-- Haldi -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🪔🌼</div>
+        <div class="event-title-wrap">
+          <div class="event-name">పెళ్ళి కూతురు — హల్దీ కార్యక్రమం</div>
+          <div class="event-datetime">జూలై 2, 2026 · ఉదయం</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>వేదిక</strong>పినిశెట్టి నివాసం, ఉడుముడి, అమలాపురం జిల్లా, ఆం.ప్ర.
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.app.goo.gl/ytLY1fHRbqRuZPUF8" target="_blank">📍 గూగుల్ మ్యాప్‌లో చూడండి</a>
+        <div class="dress-code">దుస్తులు: పసుపు & తెలుపు 🌻</div>
+        <p class="event-tagline">
+          "పసుపు పెట్టారు — బంధం కట్టారు — ఇక ఈ ఇల్లు ఆమెదే!" 🙏<br/>
+          అమ్మ చేతుల పసుపు, అత్తింటి ఆశీర్వాదాలు — ఇవే జీవితానికి ఆభరణాలు ✨
+        </p>
+        <div class="sameta">
+          🌼 మంత్రం: "హరిద్రా లేపనం దత్వా — సర్వ దోషాన్ నివారయేత్"
+        </div>
+      </div>
+    </div>
+
+    <!-- Wedding Muhurtam -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">💍📿</div>
+        <div class="event-title-wrap">
+          <div class="event-name">వివాహం — శుభ ముహూర్తం ⭐</div>
+          <div class="event-datetime">జూలై 3, 2026 · రాత్రి 1:51 AM (శుభ ముహూర్తం) | విందు సాయంత్రం 7 గంటలకు</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>వేదిక</strong>వధువు ఇల్లు — ఉడుముడి, అమలాపురం జిల్లా, ఆంధ్రప్రదేశ్
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.app.goo.gl/ytLY1fHRbqRuZPUF8" target="_blank">📍 వేదికకు దారి చూడండి</a>
+        <div class="dress-code">దుస్తులు: పట్టుచీర & ఐదు పేటలు 🙏</div>
+        <p class="event-tagline">
+          "సప్తపది అడుగులతో — ఏడు జన్మల బంధం ముడిపడింది!" 🕯️<br/>
+          తారల వెలుతురులో, శుభ ముహూర్తంలో — రెండు ప్రాణాలు ఒక్కటయ్యాయి 💍
+        </p>
+        <div class="sameta">
+          🪔 వివాహ మంత్రం: "సమస్తు నారీ పతి దేవతాభిః — సుమంగళీ భవ వరవర్ణినీ"
+        </div>
+      </div>
+    </div>
+
+    <!-- Reception -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🎉✨</div>
+        <div class="event-title-wrap">
+          <div class="event-name">రిసెప్షన్ వేడుక</div>
+          <div class="event-datetime">శనివారం జూలై 11, 2026 · సాయంత్రం నుండి</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>వేదిక</strong>శ్రీ మచని సోమప్ప ఫంక్షన్ హాల్, యేమ్మిగానూరు, కర్నూలు జిల్లా
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.app.goo.gl/dZUQ1gxbqJwG8FVW9" target="_blank">📍 గూగుల్ మ్యాప్‌లో చూడండి</a>
+        <div class="dress-code">దుస్తులు: అందమైన దుస్తులు ✨</div>
+        <p class="event-tagline">
+          "అందరినీ కలుసుకుందాం — ఒక కొత్త ప్రారంభాన్ని జరుపుకుందాం!" 🎊<br/>
+          ఆనందం పంచుకుంటేనే — అది రెట్టింపవుతుంది 💛
+        </p>
+        <div class="sameta">
+          🎶  "చుట్టాలు కలిస్తే — చేదు మాటలు కూడా తీపిగా ఉంటాయి!"
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section class="section-bg-alt">
+  <p class="section-title reveal">📸 మన జ్ఞాపకాలు</p>
+  <h2 class="section-heading reveal">మన ప్రేమ కథ</h2>
+  <p class="section-subheading reveal">
+    "ఫోటో పాత బడినా — అందులోని ప్రేమ పాతబడదు" 💕
+  </p>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" onclick="openLightbox('Photo3.jpeg')">
+      <img src="Photo3.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox('Photo4.jpeg')">
+      <img src="Photo4.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox('Photo5.jpeg')">
+      <img src="Photo5.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox('Photo6.jpeg')">
+      <img src="Photo6.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox('Photo7.jpeg')">
+      <img src="Photo7.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+    <div class="gallery-item reveal" onclick="openLightbox('Photo12.jpeg')">
+      <img src="Photo12.jpeg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:18px;font-family:'Noto Serif Telugu',serif;font-size:13px;color:var(--text-soft);" class="reveal">
+    మన అందమైన జ్ఞాపకాల అల్బమ్ ✨
+  </p>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p class="footer-names">శ్రీ లక్ష్మి & సాయి గణేష్</p>
+  <p class="footer-hashtag">#SriGan</p>
+
+  <p class="footer-mantra">
+    🪔 "శుభం భవతు — కళ్యాణం భవతు" 🪔<br/>
+    "దీర్ఘ సుమంగళీ భవ — అఖండ సౌభాగ్యవతీ భవ"
+  </p>
+
+  <p class="footer-date">జూలై 2 & 3, 2026 · ఉడుముడి, ఆంధ్రప్రదేశ్</p>
+
+  <p class="footer-sametalu">
+    "ఇద్దరూ కలిస్తే — ఇల్లు స్వర్గమవుతుంది" 🏠<br/>
+    "పెళ్ళైన జంట పరమాత్మ కలిపిన జంట" 💛<br/>
+    "మీరు వస్తే మా పెళ్ళి పండుగవుతుంది" 🙏
+  </p>
+
+  <p class="footer-msg">
+    మీ ఆశీర్వాదాలు మాకు జీవితాంతం అవసరం —<br/>
+    మీరు తప్పక రండి, మా సంతోషాన్ని పంచుకోండి! 🎊
+  </p>
+
+  <div class="divider" style="margin:0 auto 22px;opacity:.35;">
+    <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+  </div>
+  <p class="footer-credit">#SriGan 2026 · sriganesh2421.github.io/SriGan2421</p>
+</footer>
+
+<script>
+  // Particles
+  const pc=document.getElementById('particles');
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div'); p.className='particle';
+    const s=Math.random()*6+3;
+    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;
+      animation-duration:${Math.random()*12+10}s;animation-delay:${Math.random()*10}s;
+      background:${Math.random()>.5?'#C9A84C':'#E8C97A'};`;
+    pc.appendChild(p);
+  }
+
+  // Countdown — July 3, 2026 at 1:51 AM
+  const weddingTime=new Date('2026-07-03T01:51:00');
+  function updateCountdown(){
+    const diff=weddingTime-new Date();
+    if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
+    const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),
+          m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
+    document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+  }
+  updateCountdown(); setInterval(updateCountdown,1000);
+
+  // Team toggle
+  function teamSelect(btn,side){
+    document.querySelectorAll('.team-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const msgs={
+      bride:'💛 శ్రీ లక్ష్మి — లక్ష్మీదేవి అంశ! 🌸',
+      groom:'🤎 సాయి గణేష్ — గణపతి అనుగ్రహం! ⭐'
+    };
+    const orig=['💛 టీమ్ శ్రీ లక్ష్మి','🤎 టీమ్ సాయి గణేష్'];
+    btn.textContent=msgs[side];
+    setTimeout(()=>{
+      document.querySelectorAll('.team-btn').forEach((b,i)=>{b.textContent=orig[i];});
+      btn.classList.add('active'); btn.textContent=msgs[side];
+    },3000);
+  }
+
+  // Music
+  const audio=document.getElementById('bgMusic');
+  const mbtn=document.getElementById('musicBtn');
+  const waves=document.getElementById('musicWaves');
+  let playing=false;
+  window.addEventListener('load',()=>{
+    audio.volume=0.35;
+    audio.play().then(()=>{playing=true;mbtn.textContent='⏸️';waves.classList.remove('paused');}).catch(()=>{});
+  });
+  function toggleMusic(){
+    if(playing){audio.pause();mbtn.textContent='▶️';waves.classList.add('paused');}
+    else{audio.play().catch(()=>{});mbtn.textContent='⏸️';waves.classList.remove('paused');}
+    playing=!playing;
+  }
+
+  // Floating emoji on profile click
+  function createFloatingEmoji(emoji){
+    const el=document.createElement('div');
+    el.textContent=emoji;
+    el.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:100vh;font-size:${Math.random()*18+22}px;z-index:9999;pointer-events:none;transition:all 4s linear;`;
+    document.body.appendChild(el);
+    setTimeout(()=>{el.style.transform=`translateY(-120vh) rotate(${Math.random()*360}deg)`;el.style.opacity='0';},50);
+    setTimeout(()=>el.remove(),4000);
+  }
+  function showBrideLove(){
+    for(let i=0;i<25;i++) setTimeout(()=>createFloatingEmoji(['❤️','💖','💕','🌸','🪔'][Math.floor(Math.random()*5)]),i*120);
+  }
+  function showGroomMagic(){
+    for(let i=0;i<25;i++) setTimeout(()=>createFloatingEmoji(['⭐','🌟','✨','🎊','🪔'][Math.floor(Math.random()*5)]),i*120);
+  }
+
+  // Gallery lightbox
+  function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+
+  // Romantic floating magic
+  const romanticIcons=['💖','💕','💘','💞','✨','⭐','🌟','🌸','🪔','🌺','💛','🎊'];
+  function createMagic(){
+    const container=document.getElementById('magicContainer');
+    const item=document.createElement('div');
+    item.className='magic-item';
+    item.innerHTML=romanticIcons[Math.floor(Math.random()*romanticIcons.length)];
+    item.style.left=Math.random()*100+'vw';
+    item.style.animationDuration=(6+Math.random()*8)+'s';
+    item.style.fontSize=(14+Math.random()*16)+'px';
+    item.style.opacity=(.3+Math.random()*.5);
+    item.style.bottom='-50px';
+    container.appendChild(item);
+    setTimeout(()=>item.remove(),14000);
+  }
+  setInterval(createMagic,800);
+
+  // Scroll reveal
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);obs.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
