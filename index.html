@@ -560,20 +560,46 @@ transform:scale(0.88);
 
   // ── Music player
   const audio=document.getElementById('bgMusic');
-  const mbtn=document.getElementById('musicBtn');
-  const waves=document.getElementById('musicWaves');
-  let playing=false;
-  window.addEventListener('load', () => {
+const mbtn=document.getElementById('musicBtn');
+const waves=document.getElementById('musicWaves');
+
+let playing=false;
+
+window.addEventListener('load', () => {
   audio.volume = 0.35;
 
-  audio.play().then(() => {
-    playing = true;
-    mbtn.textContent = '⏸️';
-    waves.classList.remove('paused');
-  }).catch(() => {
-    console.log('Autoplay blocked');
-  });
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        playing = true;
+        mbtn.textContent = '⏸️';
+        waves.classList.remove('paused');
+      })
+      .catch(() => {
+        playing = false;
+        mbtn.textContent = '▶️';
+      });
+  }
 });
+
+function toggleMusic(){
+
+  if(playing){
+    audio.pause();
+    mbtn.textContent='▶️';
+    waves.classList.add('paused');
+  }
+
+  else{
+    audio.play().catch(()=>{});
+    mbtn.textContent='⏸️';
+    waves.classList.remove('paused');
+  }
+
+  playing=!playing;
+}
 
   // ── Gallery lightbox
   function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
