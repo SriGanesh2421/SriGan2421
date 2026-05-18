@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ════════════════════════════════════════════════
+       ✏️  EDIT 1 — Browser Tab Title
+  ════════════════════════════════════════════════ -->
+  <title>Sri Lakshmi & Sai Ganesh — Wedding Invitation #SriGan</title>
+  <meta name="description" content="Join us for the wedding of Sri Lakshmi Pinisetti & Sai Ganesh Boda — #SriGan — July 2 & 3, 2026, Udumudi, Andhra Pradesh"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ════════════════════════════════════════════
+       ✏️  EDIT 2 — COLORS / THEME
+       Change the hex codes below to retheme everything.
+       Current: Gold & Cream (royal)
+       Example maroon theme: --gold: #800020; --brown: #4A0010;
+    ════════════════════════════════════════════ */
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C97A;
+      --gold-pale:   #F5E9C8;
+      --cream:       #FDF8EE;
+      --cream-dark:  #F2E9D0;
+      --brown:       #5C3D1E;
+      --brown-light: #8B6230;
+      --text:        #3A2A10;
+      --text-soft:   #7A5C30;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--cream); color:var(--text); font-family:'Cormorant Garamond',serif; overflow-x:hidden; }
+
+    #particles { position:fixed; inset:0; pointer-events:none; z-index:0; }
+    .particle { position:absolute; border-radius:50%; opacity:0; animation:floatUp linear infinite; }
+    @keyframes floatUp {
+      0%   { transform:translateY(100vh) scale(0); opacity:0; }
+      10%  { opacity:0.5; } 90% { opacity:0.2; }
+      100% { transform:translateY(-10vh) scale(1); opacity:0; }
+    }
+
+    .hero {
+      position:relative; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:70px 28px 60px;
+      background:
+        radial-gradient(ellipse at 20% 10%,rgba(201,168,76,.18) 0%,transparent 55%),
+        radial-gradient(ellipse at 80% 90%,rgba(201,168,76,.14) 0%,transparent 55%),
+        var(--cream);
+      z-index:1;
+    }
+    .hero::before,.hero::after { content:''; position:absolute; border:1px solid rgba(201,168,76,.28); border-radius:2px; }
+    .hero::before { inset:16px; } .hero::after { inset:23px; }
+    .corner { position:absolute; width:52px; height:52px; border-color:var(--gold); border-style:solid; opacity:.65; }
+    .corner.tl{top:10px;left:10px;border-width:2px 0 0 2px}
+    .corner.tr{top:10px;right:10px;border-width:2px 2px 0 0}
+    .corner.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}
+    .corner.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
+
+    .invite-label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-bottom:22px; opacity:0; animation:fadeUp 1s ease .3s forwards; }
+
+    /* ✏️ EDIT 3: Couple photo — replace emoji with <img> tag */
+    .couple-photo-wrap {
+      width:155px; height:155px; border-radius:50%;
+      border:4px solid var(--gold);
+      box-shadow:0 0 0 8px rgba(201,168,76,.15),0 10px 32px rgba(92,61,30,.22);
+      margin-bottom:24px;
+      background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark));
+      display:flex; align-items:center; justify-content:center; font-size:62px;
+      overflow:hidden; opacity:0; animation:fadeUp 1s ease .5s forwards;
+    }
+
+    .hashtag { font-family:'Cinzel',serif; font-size:14px; letter-spacing:3px; color:var(--gold); margin-bottom:8px; opacity:0; animation:fadeUp 1s ease .65s forwards; }
+    .subtitle { font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:3px; color:var(--text-soft); text-transform:uppercase; margin-bottom:10px; opacity:0; animation:fadeUp 1s ease .7s forwards; }
+    .couple-names { font-size:clamp(36px,10vw,60px); font-weight:300; font-style:italic; color:var(--brown); line-height:1.1; margin-bottom:18px; opacity:0; animation:fadeUp 1s ease .9s forwards; }
+    .couple-names span { color:var(--gold); }
+
+    .divider { display:flex; align-items:center; gap:12px; margin:14px auto 18px; width:220px; opacity:0; animation:fadeUp 1s ease 1.05s forwards; }
+    .divider-line { flex:1; height:1px; background:var(--gold); opacity:.45; }
+    .divider-diamond { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); }
+
+    .save-date { font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:var(--text-soft); text-transform:uppercase; margin-bottom:5px; opacity:0; animation:fadeUp 1s ease 1.1s forwards; }
+    .wedding-date { font-size:21px; font-weight:600; color:var(--brown); letter-spacing:1px; margin-bottom:4px; opacity:0; animation:fadeUp 1s ease 1.2s forwards; }
+    .wedding-location { font-size:14px; font-style:italic; color:var(--text-soft); margin-bottom:26px; opacity:0; animation:fadeUp 1s ease 1.25s forwards; }
+
+    .countdown-wrap { margin-bottom:26px; opacity:0; animation:fadeUp 1s ease 1.35s forwards; }
+    .countdown-label { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; }
+    .countdown { display:flex; gap:10px; justify-content:center; }
+    .cd-box { background:linear-gradient(135deg,var(--brown) 0%,#2C1A08 100%); border:1px solid var(--gold); border-radius:6px; padding:10px 10px 8px; min-width:58px; text-align:center; }
+    .cd-num { font-family:'Cinzel',serif; font-size:24px; font-weight:600; color:var(--gold-light); line-height:1; display:block; }
+    .cd-unit { font-size:8px; letter-spacing:2px; color:rgba(232,201,122,.55); text-transform:uppercase; margin-top:4px; display:block; }
+
+    .team-section { margin-top:4px; opacity:0; animation:fadeUp 1s ease 1.55s forwards; }
+    .team-label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; color:var(--text-soft); text-transform:uppercase; margin-bottom:12px; }
+    .team-btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .team-btn { padding:10px 18px; border-radius:30px; border:1.5px solid var(--gold); background:transparent; font-family:'Cormorant Garamond',serif; font-size:13px; color:var(--brown); cursor:pointer; transition:all .3s; letter-spacing:.5px; }
+    .team-btn:hover,.team-btn.active { background:var(--gold); color:var(--cream); }
+
+    /* Music bar */
+    .music-bar {
+      position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+      background:rgba(92,61,30,.93); backdrop-filter:blur(10px);
+      border:1px solid var(--gold); border-radius:40px;
+      padding:10px 18px; display:flex; align-items:center; gap:12px;
+      z-index:999; box-shadow:0 4px 20px rgba(0,0,0,.3);
+    }
+    .music-btn { background:var(--gold); border:none; border-radius:50%; width:34px; height:34px; cursor:pointer; font-size:15px; display:flex; align-items:center; justify-content:center; transition:transform .2s; }
+    .music-btn:hover { transform:scale(1.1); }
+    .music-label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:1.5px; color:var(--gold-light); white-space:nowrap; }
+    .music-waves { display:flex; gap:3px; align-items:center; }
+    .wave-bar { width:3px; background:var(--gold); border-radius:2px; animation:wave .8s ease-in-out infinite alternate; }
+    .wave-bar:nth-child(2){animation-delay:.15s} .wave-bar:nth-child(3){animation-delay:.3s} .wave-bar:nth-child(4){animation-delay:.45s}
+    @keyframes wave { from{height:4px} to{height:16px} }
+    .music-waves.paused .wave-bar { animation-play-state:paused; height:6px; }
+
+    .scroll-hint { margin-top:34px; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:fadeUp 1s ease 2s forwards; }
+    .scroll-hint span { font-family:'Cinzel',serif; font-size:9px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; }
+    .scroll-arrow { width:22px; height:22px; border-right:1.5px solid var(--gold); border-bottom:1.5px solid var(--gold); transform:rotate(45deg); animation:bounce 1.5s ease infinite; }
+    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(-3px)} 50%{transform:rotate(45deg) translateY(3px)} }
+
+    section { position:relative; z-index:1; padding:60px 20px; }
+    .section-bg-alt { background:linear-gradient(180deg,var(--cream-dark) 0%,var(--cream) 100%); }
+    .section-title { font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; text-align:center; margin-bottom:8px; }
+    .section-heading { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,7vw,42px); font-weight:300; font-style:italic; color:var(--brown); text-align:center; margin-bottom:34px; }
+    .ornament { text-align:center; color:var(--gold); font-size:16px; letter-spacing:8px; margin:0 auto 30px; opacity:.6; }
+
+    .profiles { display:flex; flex-direction:column; gap:22px; max-width:480px; margin:0 auto; }
+    .profile-card { background:var(--cream); border:1px solid rgba(201,168,76,.28); border-radius:12px; padding:24px 20px; display:flex; gap:18px; align-items:flex-start; box-shadow:0 4px 18px rgba(92,61,30,.08); transition:transform .3s,box-shadow .3s; }
+    .profile-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(92,61,30,.14); }
+    /* ✏️ EDIT 4: Profile photos — replace emoji with <img> */
+    .profile-avatar { width:68px; height:68px; border-radius:50%; border:2.5px solid var(--gold); background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark)); display:flex; align-items:center; justify-content:center; font-size:30px; flex-shrink:0; overflow:hidden; }
+    .profile-role { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:4px; }
+    .profile-name { font-size:22px; font-weight:300; font-style:italic; color:var(--brown); margin-bottom:7px; }
+    .profile-bio { font-size:14px; line-height:1.7; color:var(--text-soft); }
+
+    .events-list { display:flex; flex-direction:column; gap:20px; max-width:480px; margin:0 auto; }
+    .event-card { background:var(--cream); border:1px solid rgba(201,168,76,.28); border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(92,61,30,.08); transition:transform .3s,box-shadow .3s; }
+    .event-card:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(92,61,30,.14); }
+    .event-header { background:linear-gradient(135deg,var(--brown) 0%,#2C1A08 100%); padding:15px 18px; display:flex; align-items:center; gap:12px; }
+    .event-icon { font-size:24px; flex-shrink:0; }
+    .event-name { font-family:'Cinzel',serif; font-size:14px; color:var(--gold-light); font-weight:600; }
+    .event-datetime { font-size:12px; color:rgba(232,201,122,.65); margin-top:3px; font-style:italic; }
+    .event-body { padding:16px 18px; }
+    .event-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .event-row-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
+    .event-row-text { font-size:14px; color:var(--text); line-height:1.5; }
+    .event-row-text strong { display:block; font-size:10.5px; font-family:'Cinzel',serif; letter-spacing:1px; color:var(--text-soft); font-weight:400; margin-bottom:2px; }
+    /* ✏️ EDIT 5: Map links — replace href with your Google Maps share links */
+    .map-link { display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:8px 16px; border:1.5px solid var(--gold); border-radius:25px; color:var(--brown); font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:1.5px; text-decoration:none; text-transform:uppercase; transition:all .3s; }
+    .map-link:hover { background:var(--gold); color:var(--cream); }
+    .dress-code { display:inline-block; margin-top:10px; padding:4px 12px; background:var(--gold-pale); border-radius:20px; font-size:12px; color:var(--brown-light); }
+    .event-tagline { margin-top:12px; padding-top:12px; border-top:1px solid rgba(201,168,76,.2); font-size:14px; font-style:italic; color:var(--text-soft); line-height:1.65; }
+
+    /* ✏️ EDIT 6: Gallery — replace emoji with <img> tags */
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; max-width:480px; margin:0 auto; }
+    .gallery-item { aspect-ratio:1; background:linear-gradient(135deg,var(--gold-pale),var(--cream-dark)); border-radius:8px; border:1px solid rgba(201,168,76,.28); display:flex; align-items:center; justify-content:center; font-size:28px; overflow:hidden; transition:transform .3s; cursor:pointer; }
+    .gallery-item:hover { transform:scale(1.04); }
+
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:9999; align-items:center; justify-content:center; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:90vw; max-height:85vh; border-radius:8px; border:2px solid var(--gold); }
+    .lightbox-close { position:absolute; top:20px; right:24px; font-size:32px; color:var(--gold); cursor:pointer; }
+
+    footer { background:linear-gradient(135deg,var(--brown) 0%,#1A0F05 100%); color:var(--gold-pale); text-align:center; padding:50px 24px 80px; position:relative; z-index:1; }
+    .footer-names { font-size:36px; font-style:italic; font-weight:300; color:var(--gold-light); margin-bottom:6px; }
+    .footer-hashtag { font-family:'Cinzel',serif; font-size:13px; letter-spacing:3px; color:var(--gold); margin-bottom:6px; }
+    .footer-date { font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:rgba(232,201,122,.55); text-transform:uppercase; margin-bottom:20px; }
+    .footer-msg { font-size:15px; font-style:italic; color:rgba(245,233,200,.7); line-height:1.75; max-width:320px; margin:0 auto 24px; }
+    .footer-credit { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; color:rgba(201,168,76,.4); text-transform:uppercase; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ✏️ EDIT 7: Background Music
+     1. Upload your mp3 file alongside index.html (name it music.mp3)
+     2. That's it! The player below will play it automatically on button press.
+     To change song name shown in player, find "Our Song" below and edit it. -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg"/>
+</audio>
+
+<div id="particles"></div>
+
+<!-- Music Player Bar (fixed at bottom) -->
+<div class="music-bar">
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶️</button>
+  <div class="music-waves paused" id="musicWaves">
+    <div class="wave-bar"></div><div class="wave-bar"></div>
+    <div class="wave-bar"></div><div class="wave-bar"></div>
+  </div>
+  <!-- ✏️ Change song name here -->
+  <span class="music-label">#SriGan — Our Song 🎵</span>
+</div>
+
+<!-- Lightbox for photos -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightboxImg" src="" alt=""/>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <p class="invite-label">Together with their families</p>
+
+  <!-- ✏️ EDIT 8: Replace 💍 with your couple photo:
+       <img src="couple.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
+  <div class="couple-photo-wrap">💍</div>
+
+  <p class="hashtag">#SriGan</p>
+  <p class="subtitle">Joyfully invite you to celebrate the wedding of</p>
+
+  <!-- ✏️ EDIT 9: Names -->
+  <h1 class="couple-names">
+    Sri Lakshmi<br/><span>&</span><br/>Sai Ganesh
+  </h1>
+
+  <div class="divider">
+    <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+  </div>
+
+  <!-- ✏️ EDIT 10: Date & Location -->
+  <p class="save-date">Save the Date</p>
+  <p class="wedding-date">2nd & 3rd July, 2026</p>
+  <p class="wedding-location">📍 Udumudi, Amalapuram District, Andhra Pradesh</p>
+
+  <div class="countdown-wrap">
+    <p class="countdown-label">Counting down to our forever</p>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-days">00</span><span class="cd-unit">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">00</span><span class="cd-unit">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">00</span><span class="cd-unit">Mins</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-unit">Secs</span></div>
+    </div>
+  </div>
+
+  <div class="team-section">
+    <p class="team-label">Mee Side Enti? (Which side are you?)</p>
+    <div class="team-btns">
+      <button class="team-btn" onclick="teamSelect(this,'bride')">👰 Team Sri Lakshmi</button>
+      <button class="team-btn" onclick="teamSelect(this,'groom')">🤵 Team Sai Ganesh</button>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- ══════════ PROFILES ══════════ -->
+<section class="section-bg-alt">
+  <p class="section-title reveal">The Couple</p>
+  <h2 class="section-heading reveal">Two Hearts, One Story</h2>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <div class="profiles">
+    <!-- ✏️ EDIT 11: Bride — change bio text & replace emoji with photo -->
+    <div class="profile-card reveal">
+      <div class="profile-avatar">👰</div>
+      <div class="profile-info">
+        <p class="profile-role">The Bride</p>
+        <p class="profile-name">Sri Lakshmi Pinisetti</p>
+        <p class="profile-bio">The calm to his storm, grace in every step, and warmth that fills every room. She began this beautiful journey with a smile — and makes every moment shine brighter.</p>
+      </div>
+    </div>
+    <!-- ✏️ EDIT 12: Groom — change bio text & replace emoji with photo -->
+    <div class="profile-card reveal">
+      <div class="profile-avatar">🤵</div>
+      <div class="profile-info">
+        <p class="profile-role">The Groom</p>
+        <p class="profile-name">Sai Ganesh Boda</p>
+        <p class="profile-bio">Her partner in laughter, adventure, and every chapter of life. He looked at her once and chose forever — and has been smiling about it ever since.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EVENTS ══════════ -->
+<section>
+  <p class="section-title reveal">The Celebrations</p>
+  <h2 class="section-heading reveal">Join Us for Every Moment</h2>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <!-- ✏️ EDIT 13: EVENTS
+       • Change event names, dates, times, venues, dress codes, taglines
+       • Replace href="..." in each map-link with your real Google Maps share link
+       • To ADD an event: copy one full event-card block and paste below
+       • To REMOVE an event: delete the whole event-card block -->
+  <div class="events-list">
+
+    <!-- Pellikuthuru / Haldi -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🌼</div>
+        <div class="event-title-wrap">
+          <div class="event-name">Pellikuthuru (Haldi)</div>
+          <div class="event-datetime">July 2, 2026 · Morning</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>Venue</strong>Pinisetti Residence, Udumudi, Amalapuram Dist., AP
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.google.com/?q=Amalapuram,Andhra+Pradesh" target="_blank">📍 View on Google Maps</a>
+        <div class="dress-code">Dress Code: Yellow & White 🌻</div>
+        <p class="event-tagline">"Pasupu petti, blessings poured with love — the golden glow of haldi marks the beginning of eternal radiance." ✨</p>
+      </div>
+    </div>
+
+    <!-- Mehendi -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🌿</div>
+        <div class="event-title-wrap">
+          <div class="event-name">Mehendi Evening</div>
+          <div class="event-datetime">July 2, 2026 · Evening</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>Venue</strong>Udumudi Village, Amalapuram District, AP
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.google.com/?q=Amalapuram,Andhra+Pradesh" target="_blank">📍 View on Google Maps</a>
+        <div class="dress-code">Dress Code: Floral & Festive 🌺</div>
+        <p class="event-tagline">"Every curve of henna tells a story — of love, laughter, and the beautiful life ahead." 🌿</p>
+      </div>
+    </div>
+
+    <!-- Wedding Muhurtam -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">💍</div>
+        <div class="event-title-wrap">
+          <div class="event-name">Vivaaham — Wedding Muhurtam</div>
+          <div class="event-datetime">July 3, 2026 · 1:51 AM (Shubh Muhurtam ⭐)</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>Venue</strong>Udumudi, Amalapuram District, Andhra Pradesh
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.google.com/?q=Amalapuram,Andhra+Pradesh" target="_blank">📍 View on Google Maps</a>
+        <div class="dress-code">Dress Code: Traditional Silk 🙏</div>
+        <p class="event-tagline">"Under the stars, at the auspicious muhurtam — two souls, seven pheras, one beautiful forever begins." 🕯️</p>
+      </div>
+    </div>
+
+    <!-- Reception -->
+    <div class="event-card reveal">
+      <div class="event-header">
+        <div class="event-icon">🥂</div>
+        <div class="event-title-wrap">
+          <div class="event-name">Reception</div>
+          <div class="event-datetime">July 3, 2026 · Evening Onwards</div>
+        </div>
+      </div>
+      <div class="event-body">
+        <div class="event-row">
+          <span class="event-row-icon">📍</span>
+          <div class="event-row-text">
+            <strong>Venue</strong>Udumudi, Amalapuram District, Andhra Pradesh
+          </div>
+        </div>
+        <a class="map-link" href="https://maps.google.com/?q=Amalapuram,Andhra+Pradesh" target="_blank">📍 View on Google Maps</a>
+        <div class="dress-code">Dress Code: Glam & Formal ✨</div>
+        <p class="event-tagline">"Celebrate love, share joy — andarini kalushukundam, oka kotta praarangam!" 🎉</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ GALLERY ══════════ -->
+<section class="section-bg-alt">
+  <p class="section-title reveal">Our Story</p>
+  <h2 class="section-heading reveal">Moments We Cherish</h2>
+  <p class="ornament reveal">✦ ✦ ✦</p>
+
+  <!-- ✏️ EDIT 14: PHOTOS
+       Replace each emoji div with a real photo like this:
+       <div class="gallery-item reveal" onclick="openLightbox('photo1.jpg')">
+         <img src="photo1.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+       </div>
+       Make sure photo files are uploaded next to index.html on GitHub! -->
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">🌸</div>
+    <div class="gallery-item reveal">💛</div>
+    <div class="gallery-item reveal">🌺</div>
+    <div class="gallery-item reveal">🎶</div>
+    <div class="gallery-item reveal">💍</div>
+    <div class="gallery-item reveal">🕊️</div>
+  </div>
+  <p style="text-align:center;margin-top:18px;font-size:13px;font-style:italic;color:var(--text-soft);" class="reveal">
+    Add your pre-wedding photos here ✨
+  </p>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<!-- ✏️ EDIT 15: Footer text & website URL -->
+<footer>
+  <p class="footer-names">Sri Lakshmi & Sai Ganesh</p>
+  <p class="footer-hashtag">#SriGan</p>
+  <p class="footer-date">2nd & 3rd July, 2026 · Udumudi, Andhra Pradesh</p>
+  <p class="footer-msg">"Two souls finding each other is a blessing. You being part of our celebration makes it complete. We cannot wait to see you there!" 🙏</p>
+  <div class="divider" style="margin:0 auto 22px;opacity:.35;">
+    <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+  </div>
+  <!-- ✏️ Change this to your actual GitHub Pages URL after upload -->
+  <p class="footer-credit">srigan2026.github.io</p>
+</footer>
+
+<script>
+  // ── Floating particles
+  const pc=document.getElementById('particles');
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div'); p.className='particle';
+    const s=Math.random()*6+3;
+    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;
+      animation-duration:${Math.random()*12+10}s;animation-delay:${Math.random()*10}s;
+      background:${Math.random()>.5?'#C9A84C':'#E8C97A'};`;
+    pc.appendChild(p);
+  }
+
+  // ════════════════════════════════════════
+  // ✏️ EDIT 16 — COUNTDOWN DATE & TIME
+  // Change to your exact muhurtam date and time
+  // Format: 'YYYY-MM-DDTHH:MM:SS'
+  // ════════════════════════════════════════
+  const weddingTime=new Date('2026-07-03T01:51:00');
+
+  function updateCountdown(){
+    const diff=weddingTime-new Date();
+    if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
+    const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),
+          m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);
+    document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+  }
+  updateCountdown(); setInterval(updateCountdown,1000);
+
+  // ── Team toggle
+  function teamSelect(btn,side){
+    document.querySelectorAll('.team-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const msgs={bride:'👰 Team Sri Lakshmi — Grace Full Power! 💛',groom:'🤵 Team Sai Ganesh — Swag Full Power! 🥂'};
+    const originals=['👰 Team Sri Lakshmi','🤵 Team Sai Ganesh'];
+    btn.textContent=msgs[side];
+    setTimeout(()=>{
+      document.querySelectorAll('.team-btn').forEach((b,i)=>{b.textContent=originals[i];});
+      btn.classList.add('active'); btn.textContent=msgs[side];
+    },2800);
+  }
+
+  // ── Music player
+  const audio=document.getElementById('bgMusic');
+  const mbtn=document.getElementById('musicBtn');
+  const waves=document.getElementById('musicWaves');
+  let playing=false;
+  function toggleMusic(){
+    if(playing){audio.pause();mbtn.textContent='▶️';waves.classList.add('paused');}
+    else{audio.play().catch(()=>{});mbtn.textContent='⏸️';waves.classList.remove('paused');}
+    playing=!playing;
+  }
+
+  // ── Gallery lightbox
+  function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+
+  // ── Scroll reveal
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);obs.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
