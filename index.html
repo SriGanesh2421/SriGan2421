@@ -32,7 +32,12 @@
 }
 
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { background:var(--cream); color:var(--text); font-family:'Cormorant Garamond',serif; overflow-x:hidden; }
+   body {
+  background:var(--cream);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
 
     #particles { position:fixed; inset:0; pointer-events:none; z-index:0; }
     .particle { position:absolute; border-radius:50%; opacity:0; animation:floatUp linear infinite; }
@@ -94,14 +99,14 @@
   margin-bottom:14px;
   opacity:.95;
 }
-   .couple-names {
-  font-size:clamp(42px,10vw,72px);
-  font-weight:400;
-  font-style:italic;
+  .couple-names{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,10vw,78px);
+  font-weight:800;
   color:#7A0019;
   line-height:1.08;
   margin-bottom:22px;
-  text-shadow:0 4px 18px rgba(122,0,25,.12);
+  text-shadow:0 4px 18px rgba(122,0,25,.18);
   letter-spacing:.5px;
   opacity:0;
   animation:fadeUp 1s ease .9s forwards;
@@ -113,7 +118,18 @@
     .divider-diamond { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); }
 
     .save-date { font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; color:var(--text-soft); text-transform:uppercase; margin-bottom:5px; opacity:0; animation:fadeUp 1s ease 1.1s forwards; }
-    .wedding-date { font-size:21px; font-weight:600; color:var(--brown); letter-spacing:1px; margin-bottom:4px; opacity:0; animation:fadeUp 1s ease 1.2s forwards; }
+    .wedding-date{
+  font-size:42px;
+  font-weight:800;
+  color:#7A0019;
+  background:linear-gradient(135deg,#FFF8D6,#F5E9C8);
+  border:2px solid var(--gold);
+  border-radius:14px;
+  padding:12px 24px;
+  display:inline-block;
+  margin-bottom:12px;
+  box-shadow:0 4px 18px rgba(201,168,76,.25);
+}
     .wedding-location { font-size:14px; font-style:italic; color:var(--text-soft); margin-bottom:26px; opacity:0; animation:fadeUp 1s ease 1.25s forwards; }
 
     .countdown-wrap { margin-bottom:26px; opacity:0; animation:fadeUp 1s ease 1.35s forwards; }
