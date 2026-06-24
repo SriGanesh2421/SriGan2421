@@ -23,11 +23,11 @@
     body { background:var(--cream); color:var(--text); font-family:'Cormorant Garamond',serif; overflow-x:hidden; }
 
     /* ══ PARTICLES ══ */
-    #particles { position:fixed; inset:0; pointer-events:none; z-index:0; }
-    .particle { position:absolute; border-radius:50%; opacity:0; animation:floatUp linear infinite; }
+    #particles { position:fixed; inset:0; pointer-events:none; z-index:0; will-change:transform; }
+    .particle { position:absolute; border-radius:50%; opacity:0; animation:floatUp linear infinite; will-change:transform,opacity; contain:strict; }
     @keyframes floatUp {
       0%   { transform:translateY(100vh) scale(0); opacity:0; }
-      10%  { opacity:0.5; } 90% { opacity:0.2; }
+      10%  { opacity:0.4; } 90% { opacity:0.15; }
       100% { transform:translateY(-10vh) scale(1); opacity:0; }
     }
 
@@ -73,8 +73,8 @@
       max-width:320px; line-height:1.8;
     }
     .couple-names {
-      font-family:'Playfair Display',serif; font-size:clamp(28px,5vw,54px);
-      font-weight:600; font-style:italic; color:#7A0019; line-height:1.2;
+      font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,60px);
+      font-weight:700; font-style:italic; color:#7A0019; line-height:1.2;
       letter-spacing:.5px; text-align:center; margin-bottom:22px;
       text-shadow:0 2px 10px rgba(122,0,25,.12); opacity:0; animation:fadeUp 1s ease .9s forwards;
     }
@@ -185,12 +185,12 @@
     .lightbox-close { position:absolute; top:20px; right:24px; font-size:32px; color:var(--gold); cursor:pointer; }
 
     /* ══ FLOATING MAGIC ══ */
-    .magic-container { position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; pointer-events:none; z-index:9998; }
-    .magic-item { position:fixed; bottom:-50px; font-size:22px; opacity:.85; animation:floatMagic linear infinite; filter:drop-shadow(0 0 10px rgba(255,255,255,.55)); }
+    .magic-container { position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; pointer-events:none; z-index:9998; contain:strict; }
+    .magic-item { position:absolute; bottom:-50px; font-size:22px; opacity:.75; animation:floatMagic linear forwards; will-change:transform,opacity; pointer-events:none; }
     @keyframes floatMagic {
       0%   { transform:translateY(0) rotate(0deg) scale(.7); opacity:0; }
-      10%  { opacity:.9; }
-      100% { transform:translateY(-120vh) rotate(360deg) scale(1.2); opacity:0; }
+      10%  { opacity:.8; }
+      100% { transform:translateY(-110vh) rotate(360deg) scale(1.1); opacity:0; }
     }
 
     /* ══ FOOTER ══ */
@@ -410,6 +410,7 @@
     .cracker-particle {
       position:fixed; pointer-events:none; z-index:99992;
       border-radius:50%; width:8px; height:8px;
+      will-change:transform,opacity;
       animation:crackerFly var(--dur,1.2s) ease-out var(--delay,0s) forwards;
     }
     @keyframes crackerFly {
@@ -429,7 +430,7 @@
     /* Spinning star burst */
     .star-burst {
       position:fixed; pointer-events:none; z-index:99992;
-      font-size:var(--sz,22px);
+      font-size:var(--sz,22px); will-change:transform,opacity;
       animation:starBurst var(--dur,1.4s) ease-out var(--delay,0s) forwards;
     }
     @keyframes starBurst {
@@ -713,13 +714,13 @@
   </footer>
 
   <script>
-  /* ══ PARTICLES ══ */
+  /* ══ PARTICLES — capped at 12 for performance ══ */
   const pc = document.getElementById('particles');
-  for(let i=0;i<28;i++){
+  for(let i=0;i<12;i++){
     const p=document.createElement('div'); p.className='particle';
-    const s=Math.random()*6+3;
+    const s=Math.random()*5+3;
     p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;
-      animation-duration:${Math.random()*12+10}s;animation-delay:${Math.random()*10}s;
+      animation-duration:${Math.random()*14+12}s;animation-delay:${Math.random()*12}s;
       background:${Math.random()>.5?'#C9A84C':'#E8C97A'};`;
     pc.appendChild(p);
   }
@@ -764,38 +765,53 @@
     playing=!playing;
   }
 
-  /* ══ FLOATING EMOJIS ══ */
-  function createFloatingEmoji(emoji,x,y){
+  /* ══ FLOATING EMOJIS — transform-only, no layout thrash ══ */
+  function createFloatingEmoji(emoji){
     const el=document.createElement('div');
     el.textContent=emoji;
-    const sx=x||Math.random()*100+'vw';
-    el.style.cssText=`position:fixed;left:${sx};top:${y||'100vh'};font-size:${Math.random()*18+22}px;z-index:99993;pointer-events:none;transition:all 4s linear;`;
+    el.style.cssText=`position:fixed;left:${Math.random()*90+5}vw;bottom:-60px;font-size:${Math.random()*14+20}px;z-index:99993;pointer-events:none;will-change:transform,opacity;transition:transform 3.5s linear,opacity 3.5s linear;`;
     document.body.appendChild(el);
-    setTimeout(()=>{el.style.transform=`translateY(-130vh) rotate(${Math.random()*720-360}deg)`;el.style.opacity='0';},50);
-    setTimeout(()=>el.remove(),4200);
+    requestAnimationFrame(()=>{
+      el.style.transform=`translateY(-120vh) rotate(${Math.random()*480-240}deg)`;
+      el.style.opacity='0';
+    });
+    setTimeout(()=>el.remove(),3600);
   }
-  function showBrideLove(){for(let i=0;i<25;i++)setTimeout(()=>createFloatingEmoji(['❤️','💖','💕','💘'][Math.floor(Math.random()*4)]),i*120);}
-  function showGroomMagic(){for(let i=0;i<25;i++)setTimeout(()=>createFloatingEmoji(['⭐','🌟','🌸','✨'][Math.floor(Math.random()*4)]),i*120);}
+  function showBrideLove(){ for(let i=0;i<14;i++) setTimeout(()=>createFloatingEmoji(['❤️','💖','💕','💘'][Math.floor(Math.random()*4)]),i*150); }
+  function showGroomMagic(){ for(let i=0;i<14;i++) setTimeout(()=>createFloatingEmoji(['⭐','🌟','🌸','✨'][Math.floor(Math.random()*4)]),i*150); }
 
   /* ══ GALLERY LIGHTBOX ══ */
   function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open');}
   function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
 
-  /* ══ AMBIENT MAGIC ══ */
-  const romanticIcons=['💖','💕','💘','💞','✨','⭐','🌟','🌸','🪔'];
+  /* ══ AMBIENT MAGIC — throttled, capped, pauses when hidden ══ */
+  const romanticIcons=['💖','💕','✨','⭐','🌸','🪔'];
+  const magicContainer=document.getElementById('magicContainer');
+  let magicTimer=null;
+
   function createMagic(){
-    const c=document.getElementById('magicContainer');
+    // Hard cap: never more than 8 magic items alive at once
+    if(magicContainer.children.length>=8) return;
     const item=document.createElement('div'); item.className='magic-item';
-    item.innerHTML=romanticIcons[Math.floor(Math.random()*romanticIcons.length)];
+    item.textContent=romanticIcons[Math.floor(Math.random()*romanticIcons.length)];
     item.style.left=Math.random()*100+'vw';
-    item.style.animationDuration=(6+Math.random()*8)+'s';
-    item.style.fontSize=(16+Math.random()*18)+'px';
-    item.style.opacity=(.4+Math.random()*.6);
-    item.style.bottom='-50px';
-    c.appendChild(item);
-    setTimeout(()=>item.remove(),14000);
+    const dur=(7+Math.random()*7);
+    item.style.animationDuration=dur+'s';
+    item.style.fontSize=(16+Math.random()*16)+'px';
+    item.style.opacity=(.35+Math.random()*.5);
+    item.style.bottom='-40px';
+    magicContainer.appendChild(item);
+    setTimeout(()=>{ if(item.parentNode) item.remove(); },(dur*1000)+200);
   }
-  setInterval(createMagic,700);
+
+  function startMagic(){ magicTimer=setInterval(createMagic,3000); }
+  function stopMagic(){ clearInterval(magicTimer); }
+
+  // Pause when tab is not visible — saves huge CPU
+  document.addEventListener('visibilitychange',()=>{
+    document.hidden ? stopMagic() : startMagic();
+  });
+  startMagic();
 
   /* ══ SCROLL REVEAL ══ */
   const obs=new IntersectionObserver((entries)=>{
@@ -821,7 +837,7 @@
   function launchSparkles(cx,cy){
     sparkleActive=true;
     sparkles=[];
-    const count=180;
+    const count=80;
     for(let i=0;i<count;i++){
       const angle=Math.random()*Math.PI*2;
       const speed=Math.random()*18+6;
@@ -868,63 +884,63 @@
     else { sparkleActive=false; ctx.clearRect(0,0,canvas.width,canvas.height); }
   }
 
-  /* Cracker burst DOM particles */
+  /* Cracker burst DOM particles — reduced counts for performance */
   function launchCrackers(cx,cy){
     const crackerEmojis=['🎇','🎆','✨','💥','⭐','🌟','💫','🎊','🎉','🪄'];
     const streakColors=['#FFD700','#FF4500','#C9A84C','#FF69B4','#00BFFF','#7FFF00','#FF8C00'];
 
-    // Emoji star bursts — 40 pieces
-    for(let i=0;i<40;i++){
+    // Emoji star bursts — 20 pieces
+    for(let i=0;i<20;i++){
       const el=document.createElement('div'); el.className='star-burst';
       const angle=Math.random()*Math.PI*2;
-      const dist=Math.random()*320+100;
+      const dist=Math.random()*300+80;
       el.textContent=crackerEmojis[Math.floor(Math.random()*crackerEmojis.length)];
       el.style.left=cx+'px'; el.style.top=cy+'px';
       el.style.setProperty('--tx',Math.cos(angle)*dist+'px');
-      el.style.setProperty('--ty',Math.sin(angle)*dist-(Math.random()*200+100)+'px');
+      el.style.setProperty('--ty',Math.sin(angle)*dist-(Math.random()*200+80)+'px');
       el.style.setProperty('--dur',(Math.random()*0.8+1)+'s');
-      el.style.setProperty('--delay',(Math.random()*0.3)+'s');
-      el.style.setProperty('--sz',(Math.random()*18+16)+'px');
+      el.style.setProperty('--delay',(Math.random()*0.25)+'s');
+      el.style.setProperty('--sz',(Math.random()*16+14)+'px');
       document.body.appendChild(el);
-      setTimeout(()=>el.remove(),2500);
+      setTimeout(()=>el.remove(),2400);
     }
 
-    // Colored dot crackers — 60 pieces
-    for(let i=0;i<60;i++){
+    // Colored dot crackers — 30 pieces
+    for(let i=0;i<30;i++){
       const el=document.createElement('div'); el.className='cracker-particle';
       const angle=Math.random()*Math.PI*2;
-      const dist=Math.random()*280+80;
+      const dist=Math.random()*260+70;
       el.style.left=(cx-4)+'px'; el.style.top=(cy-4)+'px';
       el.style.background=COLORS[Math.floor(Math.random()*COLORS.length)];
-      el.style.width=(Math.random()*8+4)+'px';
-      el.style.height=(Math.random()*8+4)+'px';
-      el.style.setProperty('--tx',Math.cos(angle)*dist+'px');
-      el.style.setProperty('--ty',Math.sin(angle)*dist-(Math.random()*200+80)+'px');
-      el.style.setProperty('--dur',(Math.random()*0.7+0.9)+'s');
-      el.style.setProperty('--delay',(Math.random()*0.25)+'s');
-      document.body.appendChild(el);
-      setTimeout(()=>el.remove(),2200);
-    }
-
-    // Colourful streaks — 30 pieces
-    for(let i=0;i<30;i++){
-      const el=document.createElement('div'); el.className='cracker-streak';
-      const angle=Math.random()*Math.PI*2;
-      const dist=Math.random()*240+80;
-      el.style.left=cx+'px'; el.style.top=cy+'px';
-      el.style.background=streakColors[Math.floor(Math.random()*streakColors.length)];
-      el.style.height=(Math.random()*22+12)+'px';
-      el.style.setProperty('--rot',Math.random()*360+'deg');
+      el.style.width=(Math.random()*7+3)+'px';
+      el.style.height=(Math.random()*7+3)+'px';
       el.style.setProperty('--tx',Math.cos(angle)*dist+'px');
       el.style.setProperty('--ty',Math.sin(angle)*dist-(Math.random()*180+60)+'px');
-      el.style.setProperty('--dur',(Math.random()*0.6+0.8)+'s');
+      el.style.setProperty('--dur',(Math.random()*0.6+0.9)+'s');
       el.style.setProperty('--delay',(Math.random()*0.2)+'s');
       document.body.appendChild(el);
       setTimeout(()=>el.remove(),2000);
     }
 
-    // Ribbon streamers — 50 pieces falling from top
-    for(let i=0;i<50;i++){
+    // Colourful streaks — 15 pieces
+    for(let i=0;i<15;i++){
+      const el=document.createElement('div'); el.className='cracker-streak';
+      const angle=Math.random()*Math.PI*2;
+      const dist=Math.random()*220+70;
+      el.style.left=cx+'px'; el.style.top=cy+'px';
+      el.style.background=streakColors[Math.floor(Math.random()*streakColors.length)];
+      el.style.height=(Math.random()*20+10)+'px';
+      el.style.setProperty('--rot',Math.random()*360+'deg');
+      el.style.setProperty('--tx',Math.cos(angle)*dist+'px');
+      el.style.setProperty('--ty',Math.sin(angle)*dist-(Math.random()*160+50)+'px');
+      el.style.setProperty('--dur',(Math.random()*0.5+0.8)+'s');
+      el.style.setProperty('--delay',(Math.random()*0.15)+'s');
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),1800);
+    }
+
+    // Ribbon streamers — 20 pieces
+    for(let i=0;i<20;i++){
       const el=document.createElement('div'); el.className='ribbon';
       el.style.background=COLORS[Math.floor(Math.random()*COLORS.length)];
       el.style.left=Math.random()*100+'vw';
@@ -932,13 +948,13 @@
       el.style.setProperty('--sx','0px');
       el.style.setProperty('--sy','0px');
       el.style.setProperty('--wx',(Math.random()*60-30)+'px');
-      el.style.setProperty('--wx2',(Math.random()*120-60)+'px');
+      el.style.setProperty('--wx2',(Math.random()*100-50)+'px');
       el.style.setProperty('--dur',(Math.random()*1+1.5)+'s');
-      el.style.setProperty('--delay',(Math.random()*0.8)+'s');
-      el.style.width=(Math.random()*4+2)+'px';
-      el.style.height=(Math.random()*20+10)+'px';
+      el.style.setProperty('--delay',(Math.random()*0.6)+'s');
+      el.style.width=(Math.random()*3+2)+'px';
+      el.style.height=(Math.random()*18+8)+'px';
       document.body.appendChild(el);
-      setTimeout(()=>el.remove(),3500);
+      setTimeout(()=>el.remove(),3200);
     }
   }
 
@@ -997,8 +1013,8 @@
 
     // Step 6 — second wave of celebratory emojis
     setTimeout(()=>{
-      for(let i=0;i<30;i++){
-        setTimeout(()=>createFloatingEmoji(['💍','💖','🌸','✨','💕','🎊','🎉','⭐','🥂'][Math.floor(Math.random()*9)]),i*80);
+      for(let i=0;i<15;i++){
+        setTimeout(()=>createFloatingEmoji(['💍','💖','🌸','✨','💕','🎊','🎉','⭐','🥂'][Math.floor(Math.random()*9)]),i*100);
       }
     },1100);
   }
